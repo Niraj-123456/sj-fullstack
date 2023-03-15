@@ -1,0 +1,128 @@
+.container {
+  width: 100%;
+}
+
+.content {
+  width: 80%;
+  margin: auto;
+  display: flex;
+}
+
+.content__left {
+  padding-block: 70px;
+}
+
+.get__discount__header {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+  padding-block: 5px;
+  color: var(--color-black);
+}
+
+.get__discount__description {
+  font-size: 1.15rem;
+  padding-block: 5px;
+  color: var(--color-gray-2);
+}
+
+.get__discount__list {
+  margin-top: 20px;
+  padding-inline: 10px;
+  list-style: none;
+  width: 80%;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(50px, 1fr));
+}
+
+.get__discount__list li {
+  padding-inline: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-blue);
+}
+
+.get__discount__list li::marker {
+  content: "✓";
+  font-weight: 700;
+  display: flex;
+  color: var(--color-blue);
+}
+
+.registration {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.content__right {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.content__right__image {
+  position: relative;
+  height: 500px;
+  width: 500px;
+}
+
+.discounted__book__now {
+  display: flex;
+  margin-top: 40px;
+}
+
+.discounted__book__now > a {
+  background: var(--primary-color);
+  color: var(--color-white);
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+@media screen and (max-width: 414px) {
+  .content {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .content__left {
+    padding: 25px 10px;
+  }
+
+  .get__discount__header {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .get__discount__description {
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  .get__discount__list {
+    gap: 10px;
+    width: 100%;
+  }
+
+  .get__discount__list li {
+    font-size: 0.8rem;
+  }
+
+  .discounted__book__now {
+    justify-content: center;
+  }
+
+  .discounted__book__now > a {
+    font-size: 0.95rem;
+    padding: 12px 17px;
+  }
+
+  .content__right__image {
+    width: 374px;
+    height: 340px;
+  }
+}

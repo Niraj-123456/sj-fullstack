@@ -1,0 +1,129 @@
+.container {
+  width: 100%;
+  /* height: 1080px; */
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  padding-block: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__content {
+  width: 466px;
+}
+
+.label__style {
+  color: var(--color-gray-2);
+}
+
+.are__you__a {
+  color: var(--color-gray-2);
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+.type__of__user {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.is__a__customer,
+.is__a__serviceProvider {
+  display: flex;
+  gap: 5px;
+  border: solid 1px var(--color-gray-4);
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.is__a__customer:has(input[type="radio"]:checked),
+.is__a__serviceProvider:has(input[type="radio"]:checked) {
+  background: var(--color-gray-4);
+  transition: all 250ms ease-in-out;
+}
+
+.form__content h1 {
+  font-size: 3rem;
+}
+
+.form__content form {
+  margin-top: 20px;
+}
+
+.input__icon {
+  width: 45px;
+  font-size: 15px;
+}
+
+.input {
+  padding-top: 1.5px;
+}
+
+.phone__number__field {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.phone__number {
+  width: 49.5%;
+}
+
+.terms__agreement__field {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.terms__agreement__label {
+  font-size: 0.9rem;
+}
+
+.register__btn__container {
+  margin-top: 50px;
+}
+
+.have__account {
+  text-align: center;
+  padding-block: 20px 10px;
+}
+
+.register__bg__image {
+  position: relative;
+  width: 100%;
+}
+
+@media screen and (max-width: 414px) {
+  .container {
+    height: 100%;
+    padding-block: 30px;
+  }
+
+  .content {
+    width: 80%;
+    padding-block: 20px;
+    margin: auto;
+  }
+
+  .form__content h1 {
+    font-size: 2.3rem;
+  }
+
+  .phone__number__field {
+    flex-direction: column;
+  }
+
+  .phone__number {
+    width: 100%;
+  }
+
+  .register__bg__image {
+    display: none;
+  }
+}

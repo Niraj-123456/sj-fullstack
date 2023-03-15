@@ -1,0 +1,33 @@
+.container {
+  background: var(--color-gray-3);
+  width: 100%;
+}
+
+.content {
+  background: var(--color-white);
+  width: 414px;
+  margin: auto;
+  padding: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 1.25rem;
+}
+
+.new__booking__form {
+  margin-top: 30px;
+}
+
+.new__booking__form form {
+  width: 350px;
+}
+
+.new__booking__form h1 {
+  display: none;
+}

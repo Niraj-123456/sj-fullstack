@@ -1,0 +1,28 @@
+.input__container {
+  margin-top: 20px;
+}
+
+.select__label {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.btn__container {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.textarea__label__style {
+  font-weight: 400;
+}
+
+.add__btn {
+  display: none;
+}
+
+.update__btn {
+  display: block;
+}

@@ -1,0 +1,145 @@
+.container {
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  padding-inline: 30px;
+  padding-top: 23px;
+  border-bottom: 1px solid #f7f5fb;
+}
+
+.logo {
+  position: relative;
+  width: 138px;
+  height: 74px;
+}
+
+.right__navbar {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+  flex: 1;
+}
+
+.right__navbar button {
+  background: #067ddd;
+  height: 50px;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  color: var(--color-white);
+  border: 0;
+  cursor: pointer;
+}
+
+.admin__user {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.admin__user__img {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.drop__down {
+  z-index: 9999;
+  opacity: 1;
+  position: absolute;
+  right: 25px;
+  background: var(--color-white);
+  border: 1px solid #f7f5fb;
+  box-shadow: 0px 8px 16px rgba(38, 38, 38, 0.08);
+}
+
+.drop__down ul {
+  list-style: none;
+}
+
+.drop__down h1 {
+  font-size: 0.9rem;
+  line-height: 17px;
+  padding-block: 20px 5px;
+  padding-inline: 20px;
+  text-transform: capitalize;
+}
+
+.drop__down a {
+  color: #4062bb;
+  font-size: 0.75rem;
+  line-height: 14px;
+  padding-inline: 20px;
+  padding-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.drop__down ul {
+  margin-top: 10px;
+}
+
+.drop__down ul li {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 14px;
+  text-transform: capitalize;
+  padding-block: 10px;
+  padding-inline: 20px 120px;
+  cursor: pointer;
+}
+
+.drop__down ul li:hover {
+  background: var(--color-white-3);
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  padding-inline: 30px;
+  padding-top: 20px;
+}
+
+.left__content {
+  margin-top: 20px;
+}
+
+.left__content ul {
+  list-style: none;
+}
+
+.left__content ul li {
+  padding: 20px;
+  padding-right: 100px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #828282;
+  cursor: pointer;
+}
+
+.left__content ul li.active {
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.9)
+    ),
+    var(--color-blue-3);
+  border-radius: 0px 30px 30px 0px;
+  color: var(--color-blue-2);
+}
+
+.right__content {
+  width: 100%;
+}
+
+.record__table {
+  margin-top: 20px;
+}

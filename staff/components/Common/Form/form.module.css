@@ -1,0 +1,31 @@
+.booking__form {
+  width: 80%;
+}
+
+.booking__form h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.booking__form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input__icon {
+  width: 48px;
+}
+
+@media screen and (max-width: 414px) {
+  .booking__form {
+    width: 100%;
+  }
+
+  .input__icon {
+    font-size: 1rem;
+  }
+}

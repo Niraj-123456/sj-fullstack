@@ -1,0 +1,73 @@
+.container {
+  width: 100%;
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  padding-block: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__content {
+  width: 466px;
+}
+
+.form__content h1 {
+  font-size: 3rem;
+}
+
+.form__content form {
+  margin-top: 40px;
+}
+
+.input__icon {
+  width: 50px;
+  font-size: 1rem;
+}
+
+.phonenumber__input {
+  margin-top: 20px;
+  width: 55%;
+}
+
+.have__account {
+  text-align: center;
+  padding-block: 20px 10px;
+}
+
+.register__bg__image {
+  position: relative;
+  width: 100%;
+}
+
+@media screen and (max-width: 414px) {
+  .container {
+    height: 100%;
+    padding-block: 30px;
+  }
+
+  .content {
+    width: 80%;
+    margin: auto;
+  }
+
+  .form__content h1 {
+    font-size: 2.3rem;
+  }
+
+  .input__icon {
+    width: 45px;
+    font-size: 0.93rem;
+  }
+
+  .phonenumber__input {
+    width: 100%;
+  }
+
+  .register__bg__image {
+    display: none;
+  }
+}

@@ -1,0 +1,7 @@
+FROM nginx:1.21.6-alpine
+# COPY --from=prodbuild /app/build /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+RUN ls -a
+RUN pwd
+COPY ./nginx/conf/nginx.conf /etc/nginx/conf.d
+CMD  nginx -s reload

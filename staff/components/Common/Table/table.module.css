@@ -1,0 +1,45 @@
+.table__container {
+  overflow: auto;
+  width: 100%;
+}
+
+.records {
+  width: 100%;
+  font-size: 0.9rem;
+  line-height: 16px;
+  border-collapse: collapse;
+  table-layout: auto;
+  text-align: left;
+}
+
+.records tr {
+  background: #f7f5fb;
+  border-radius: 10px;
+}
+
+.records th,
+.records td {
+  padding: 15px 10px;
+  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+}
+
+.records th {
+  background: #067ddd;
+  color: var(--color-white);
+}
+
+@media screen and (max-width: 414px) {
+  .table__container {
+    overflow-x: auto;
+  }
+
+  .records {
+    font-size: 0.8rem;
+  }
+
+  .records th,
+  .records td {
+    padding: 12px;
+  }
+}

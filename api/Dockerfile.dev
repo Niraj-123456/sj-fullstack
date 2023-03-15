@@ -1,0 +1,25 @@
+#####################  Development ###########################
+FROM node:14.16.1-alpine As development
+# FROM node:18-alpine3.15 As development
+
+# RUN npm -v
+# 6.14.12
+# RUN node -v
+# v14.16.1
+
+
+RUN apk add --no-cache alpine-conf && \
+    setup-timezone -z Asia/Kathmandu
+
+WORKDIR /app
+
+
+COPY package*.json ./
+
+# RUN npm install -g npm@8.17.0
+
+RUN npm install
+
+# RUN npm run build
+
+CMD ["npm", "run", "start:dev"]

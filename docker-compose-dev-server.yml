@@ -1,0 +1,288 @@
+version: "3.7"
+
+services:
+  # client:
+  #   container_name: sahaj_client_dev
+  #   build:
+  #     context: client
+  #     dockerfile: Dockerfile.dev
+  #     # target: base
+  #     # target: production
+  #     target: development
+  #   working_dir: /app
+  #   command:
+  #     - sh
+  #     - -c
+  #     - |
+  #       # npm install
+  #       echo ${NODE_ENV_DEV}
+  #       echo ${NODE_ENV}
+
+  #       npm run start:dev
+  #   #     # ./node_modules/.bin/gulp build
+  #   links:
+  #     - api
+  #   volumes:
+  #     - "./client:/app:cached"
+  #   ports:
+  #     - "${NEXT_PUBLIC_FRONTEND_HOST_PORT_DEV}:${NEXT_PUBLIC_FRONTEND_HOST_PORT_DEV}"
+  #   environment:
+  #     NODE_ENV: ${NODE_ENV_DEV}
+  #     NEXT_PUBLIC_NODE_API_BASE_URL: ${NEXT_PUBLIC_NODE_API_BASE_URL_DEV}
+  #     NEXT_PUBLIC_NODE_API_VERSION: ${NEXT_PUBLIC_NODE_API_VERSION_DEV}
+
+  #     NEXT_PUBLIC_FRONTEND_HOST: ${NEXT_PUBLIC_FRONTEND_HOST_DEV}
+  #     NEXT_PUBLIC_FRONTEND_HOST_IP: ${NEXT_PUBLIC_FRONTEND_HOST_IP_DEV}
+  #     NEXT_PUBLIC_FRONTEND_HOST_PORT: ${NEXT_PUBLIC_FRONTEND_HOST_PORT_DEV}
+
+  #     NEXT_PUBLIC_PC_BROWSER_KEY_CLIENT_KEY: ${NEXT_PUBLIC_PC_BROWSER_KEY_CLIENT_KEY_DEV}
+  #     NEXT_PUBLIC_ANDROID_BROWSER_CLIENT_KEY: ${NEXT_PUBLIC_ANDROID_BROWSER_CLIENT_KEY_DEV}
+  #     NEXT_PUBLIC_ANDROID_APP_CLIENT_KEY: ${NEXT_PUBLIC_ANDROID_APP_CLIENT_KEY_DEV}
+  #     NEXT_PUBLIC_IOS_BROWSER_CLIENT_KEY: ${NEXT_PUBLIC_IOS_BROWSER_CLIENT_KEY_DEV}
+  #     NEXT_PUBLIC_IOS_APP_CLIENT_KEY: ${NEXT_PUBLIC_IOS_APP_CLIENT_KEY_DEV}
+
+  #   # restart: always
+  #   # logging:
+  #   #   driver: none
+
+  # staff:
+  #   container_name: sahaj_staff_dev
+  #   build:
+  #     context: staff
+  #     dockerfile: Dockerfile.dev
+  #     # target: base
+  #     # target: production
+  #     target: development
+  #   working_dir: /app
+  #   command:
+  #     - sh
+  #     - -c
+  #     - |
+  #       # npm install
+  #       npm run start:dev
+  #   #     # ./node_modules/.bin/gulp build
+  #   links:
+  #     - api
+  #   volumes:
+  #     - "./staff:/app:cached"
+  #   ports:
+  #     - "${NEXT_PUBLIC_STAFF_FRONTEND_HOST_PORT_DEV}:${NEXT_PUBLIC_STAFF_FRONTEND_HOST_PORT_DEV}"
+  #   environment:
+  #     NODE_ENV: ${NODE_ENV_DEV}
+  #     NEXT_PUBLIC_NODE_API_BASE_URL: ${NEXT_PUBLIC_NODE_API_BASE_URL_DEV}
+  #     NEXT_PUBLIC_NODE_API_VERSION: ${NEXT_PUBLIC_NODE_API_VERSION_DEV}
+
+  #     NEXT_PUBLIC_STAFF_FRONTEND_HOST: ${NEXT_PUBLIC_STAFF_FRONTEND_HOST_DEV}
+  #     NEXT_PUBLIC_STAFF_FRONTEND_HOST_IP: ${NEXT_PUBLIC_STAFF_FRONTEND_HOST_IP_DEV}
+  #     NEXT_PUBLIC_STAFF_FRONTEND_HOST_PORT: ${NEXT_PUBLIC_STAFF_FRONTEND_HOST_PORT_DEV}
+  #     NEXT_PUBLIC_STAFF_FRONTEND_VERSION: ${NEXT_PUBLIC_STAFF_FRONTEND_VERSION_DEV}
+
+  #     NEXT_PUBLIC_SUPERADMIN_KEY: ${NEXT_PUBLIC_SUPERADMIN_KEY_DEV}
+
+  #     NEXT_PUBLIC_STAFF_ADMIN_KEY: ${NEXT_PUBLIC_STAFF_ADMIN_KEY_DEV}
+  #     # NEXT_PUBLIC_SERVICE_PROVIDER_KEY: ${NEXT_PUBLIC_SERVICE_PROVIDER_KEY_DEV}
+
+  #   # restart: always
+  #   # logging:
+  #   #   driver: none
+
+  api:
+    container_name: sahaj_api_dev
+    build:
+      context: api
+      dockerfile: Dockerfile.dev
+      target: development
+    volumes:
+      - ./api/:/app/
+      # - ./api/cicd/aws:/root/.aws
+    # image: ac-api:1.0.0-prod
+    command:
+      - /bin/sh
+      - -c
+      - |
+        echo "Starting docker-compose's API service with commit tag: ${COMMIT_TAG}"
+        # npm install
+        # npm uninstall bcrypt
+        # npm install bcrypt
+
+        # chmod +x *.sh
+        #./start-migration.sh
+        # npm install
+        npm run start:dev
+        # npm  -v
+        # npm cache verify
+        # npm run seed
+
+    environment:
+      COMMIT_TAG: ${COMMIT_TAG}
+
+      #common
+
+      TZ: ${TZ}
+
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET: ${AWS_SECRET}
+      AWS_S3_BUCKET_NAME: ${AWS_S3_BUCKET_NAME}
+      AWS_REGION: ${AWS_REGION}
+      AWS_S3_BASE_PROJECT_PATH_COMMON: ${AWS_S3_BASE_PROJECT_PATH_COMMON}
+
+      TWILIO_ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}
+      TWILIO_AUTH_TOKEN: ${TWILIO_AUTH_TOKEN}
+      TWILIO_SENDER_phoneNumber: ${TWILIO_SENDER_phoneNumber}
+
+      #backend
+      AWS_S3_BASE_PROJECT_PATH: ${AWS_S3_BASE_PROJECT_PATH_DEV}
+
+      NODE_ENV: ${NODE_ENV_DEV}
+      MODE: ${MODE_DEV}
+
+      NODE_API_HOST: ${NODE_API_HOST_DEV}
+      NODE_API_HOST_IP: ${NODE_API_HOST_IP_DEV}
+      NODE_API_PORT: ${NODE_API_PORT_DEV}
+      NODE_API_VERSION: ${NODE_API_VERSION_DEV}
+      NODE_API_SUB_VERSION: ${NODE_API_SUB_VERSION_DEV}
+
+      POSTGRES_HOST: ${POSTGRES_HOST_DEV}
+      POSTGRES_PORT: ${POSTGRES_PORT_DEV}
+      POSTGRES_USERNAME: ${POSTGRES_USERNAME_DEV}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD_DEV}
+      POSTGRES_DATABASE: ${POSTGRES_DATABASE_DEV}
+      RUN_MIGRATIONS: ${RUN_MIGRATIONS_DEV}
+      MIGRATION_DIR: ${MIGRATION_DIR_DEV}
+      # TYPEORM_SEEDING_FACTORIES: "src/database/factories/**/*{.ts,.js}"
+      # TYPEORM_SEEDING_SEEDS: "src/database/seeds/**/*{.ts,.js}"
+
+      SECRET: ${SECRET_DEV}
+
+      JWT_SECRET: ${JWT_SECRET_DEV}
+      DEFAULT_PASSPORT_STRATEGY: ${DEFAULT_PASSPORT_STRATEGY_DEV}
+
+      NEXT_PUBLIC_PC_BROWSER_KEY_CLIENT_KEY: ${NEXT_PUBLIC_PC_BROWSER_KEY_CLIENT_KEY_DEV}
+      NEXT_PUBLIC_ANDROID_BROWSER_CLIENT_KEY: ${NEXT_PUBLIC_ANDROID_BROWSER_CLIENT_KEY_DEV}
+      NEXT_PUBLIC_ANDROID_APP_CLIENT_KEY: ${NEXT_PUBLIC_ANDROID_APP_CLIENT_KEY_DEV}
+      NEXT_PUBLIC_IOS_BROWSER_CLIENT_KEY: ${NEXT_PUBLIC_IOS_BROWSER_CLIENT_KEY_DEV}
+      NEXT_PUBLIC_IOS_APP_CLIENT_KEY: ${NEXT_PUBLIC_IOS_APP_CLIENT_KEY_DEV}
+
+      NEXT_PUBLIC_SUPERADMIN_KEY: ${NEXT_PUBLIC_SUPERADMIN_KEY_DEV}
+      NEXT_PUBLIC_STAFF_ADMIN_KEY: ${NEXT_PUBLIC_STAFF_ADMIN_KEY_DEV}
+      NEXT_PUBLIC_SERVICE_PROVIDER_KEY: ${NEXT_PUBLIC_SERVICE_PROVIDER_KEY_DEV}
+
+      REFERRAL_DISCOUNT_PERCENTAGE: ${REFERRAL_DISCOUNT_PERCENTAGE_DEV}
+      REFEREE_DISCOUNT_PERCENTAGE: ${REFEREE_DISCOUNT_PERCENTAGE_DEV}
+      USER_REFERRAL_TOKEN_EXPIRY_PERIOD_IN_MONTH: ${USER_REFERRAL_TOKEN_EXPIRY_PERIOD_IN_MONTH_DEV}
+
+      DOES_SEND_SMS: ${DOES_SEND_SMS_DEV}
+      SPARROW_SMS_TOKEN: ${SPARROW_SMS_TOKEN_DEV}
+      SMS_SENDER: ${SMS_SENDER_DEV}
+
+      #frontend
+      NEXT_PUBLIC_FRONTEND_HOST: ${NEXT_PUBLIC_FRONTEND_HOST_DEV}
+      NEXT_PUBLIC_FRONTEND_HOST_IP: ${NEXT_PUBLIC_FRONTEND_HOST_IP_DEV}
+      NEXT_PUBLIC_FRONTEND_HOST_PORT: ${NEXT_PUBLIC_FRONTEND_HOST_PORT_DEV}
+      NEXT_PUBLIC_FRONTEND_VERSION: ${NEXT_PUBLIC_FRONTEND_VERSION_DEV}
+
+    ports:
+      - "${NODE_API_PORT_DEV}:${NODE_API_PORT_DEV}"
+    networks:
+      - webnet
+    depends_on:
+      - db
+    # restart: always
+    # logging:
+    #   driver: none
+
+  db:
+    container_name: sahaj_db_dev
+    build:
+      context: database
+      dockerfile: Dockerfile
+    image: sahaj_db_img
+    # healthcheck:
+    #   test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
+    #   timeout: 45s
+    #   interval: 10s
+    #   retries: 10
+    networks:
+      - webnet
+    # env_file:
+    #   - database/.env.dev
+    environment:
+      POSGRES_PASSWORD: ${POSTGRES_PASSWORD_DEV}
+      POSTGRES_USER: ${POSTGRES_USERNAME_DEV}
+      POSTGRES_DB: ${POSTGRES_DATABASE_DEV}
+      TZ: ${TZ}
+      POSTGRES_HOST_AUTH_METHOD: ${POSTGRES_HOST_AUTH_METHOD_DEV}
+      PGDATA: /var/lib/postgresql/data
+
+    ports:
+      - "${POSTGRES_PORT_DEV}:${POSTGRES_PORT_DEV}"
+    volumes:
+      - ./database/pgdata-dev:/var/lib/postgresql/data:rw
+    command: -p ${POSTGRES_PORT_DEV}
+    # restart: always
+    logging:
+      driver: none
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: sahaj_pgadmin4_dev
+    restart: always
+    networks:
+      - webnet
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL_DEV}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD_DEV}
+      - PGADMIN_LISTEN_PORT=${PGADMIN_LISTEN_PORT_DEV}
+    volumes:
+      - pgadmin-configs-sahaj-dev:/usr/share/pgadmin4/configs
+    ports:
+      - "${PGADMIN_LISTEN_PORT_DEV}:${PGADMIN_LISTEN_PORT_DEV}"
+
+  #   depends_on:
+  #     - db
+  #   # restart: always
+  #   logging:
+  #     driver: none
+
+  # jenkins:
+  #   # for reference: https://www.cloudbees.com/blog/how-to-install-and-run-jenkins-with-docker-compose
+  #   image: jenkins/jenkins:lts
+  #   privileged: true
+  #   user: root
+  #   container_name: sahaj_jenkins_dev
+  #   ports:
+  #     - 8080:8080
+  #     - 50000:50000
+  #   volumes:
+  #     - ./jenkins_compose/jenkins_dev/jenkins_configuration:/var/jenkins_home
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   # see the initial password with:
+  #   # - docker-compose -f docker-compose-dev.yml exec jenkins /bin/sh
+  #   # - cat /var/jenkins_home/secrets/initialAdminPassword
+
+  # git-server:
+  #   container_name: git-server
+  #   image: jkarlos/git-server-docker
+  #   ports:
+  #     - "2222:22"
+  #   volumes:
+  #     - ./git-server/keys:/git-server/keys
+  #     - ./git-server/repos:/git-server/repos
+
+networks:
+  webnet:
+
+volumes:
+  pgadmin-configs-sahaj-dev:
+    driver: local
+# ##### ports #######
+# sahaj - prod:
+#   pgadmin : 5081
+#   db      : 5421
+#   api     : 5021
+#   client  : 3021 / prod 80
+# sahaj -dev :
+#   pgadmin : 5082
+#   db      : 5422
+#   api     : 5022
+#   client  : 3022

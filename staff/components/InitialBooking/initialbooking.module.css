@@ -1,0 +1,53 @@
+.container {
+  width: 100%;
+  background: var(--background-color);
+}
+
+.content {
+  width: 80%;
+  margin: auto;
+  padding-block: 120px;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.initial__form__booknow {
+  margin-top: 30px;
+}
+
+.initial__form__booknow a {
+  background: var(--primary-color);
+  color: var(--color-white);
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+@media screen and (max-width: 414px) {
+  .content {
+    width: 90%;
+    gap: 30px;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 0;
+  }
+
+  .initial__form__loggedIn__content {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 30px;
+  }
+
+  .initial__form__loggedIn__content p {
+    text-align: center;
+  }
+
+  .initial__form__booknow {
+    width: 100%;
+    text-align: center;
+  }
+}

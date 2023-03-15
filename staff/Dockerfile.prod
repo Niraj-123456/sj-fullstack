@@ -1,0 +1,52 @@
+# 1. Install dependencies only when needed
+FROM node:16-alpine AS dependencies
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+# RUN apk add --no-cache libc6-compat
+
+WORKDIR /app
+
+# Install dependencies based on the preferred package manager
+COPY package.json ./
+RUN npm install
+
+# 2. Rebuild the source code only when needed
+FROM node:16-alpine AS runner
+WORKDIR /app
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY . .
+
+#### ARGS ##########
+ARG NODE_ENV
+ARG NEXT_PUBLIC_NODE_API_BASE_URL
+ARG NEXT_PUBLIC_NODE_API_VERSION
+
+ARG NEXT_PUBLIC_STAFF_FRONTEND_HOST
+ARG NEXT_PUBLIC_STAFF_FRONTEND_HOST_IP
+ARG NEXT_PUBLIC_STAFF_FRONTEND_HOST_PORT
+ARG NEXT_PUBLIC_STAFF_FRONTEND_VERSION
+
+ARG NEXT_PUBLIC_SUPERADMIN_KEY
+
+#### ENVS ##########
+ENV NODE_ENV $NODE_ENV
+ENV NEXT_PUBLIC_NODE_API_BASE_URL $NEXT_PUBLIC_NODE_API_BASE_URL
+ENV NEXT_PUBLIC_NODE_API_VERSION $NEXT_PUBLIC_NODE_API_VERSION
+
+ENV NEXT_PUBLIC_STAFF_FRONTEND_HOST $NEXT_PUBLIC_STAFF_FRONTEND_HOST
+ENV NEXT_PUBLIC_STAFF_FRONTEND_HOST_IP $NEXT_PUBLIC_STAFF_FRONTEND_HOST_IP
+ENV NEXT_PUBLIC_STAFF_FRONTEND_HOST_PORT $NEXT_PUBLIC_STAFF_FRONTEND_HOST_PORT
+ENV NEXT_PUBLIC_STAFF_FRONTEND_VERSION $NEXT_PUBLIC_STAFF_FRONTEND_VERSION
+
+ENV NEXT_PUBLIC_SUPERADMIN_KEY $NEXT_PUBLIC_SUPERADMIN_KEY
+
+ENV NODE_ENV=production
+
+# This will do the trick, use the corresponding env file for each environment.
+COPY .env.production .env
+RUN npm run build
+
+# remove dev dependencies
+# RUN npm prune --production
+
+EXPOSE $NEXT_PUBLIC_STAFF_FRONTEND_HOST_PORT
+CMD ["npm", "run","start:prod"]

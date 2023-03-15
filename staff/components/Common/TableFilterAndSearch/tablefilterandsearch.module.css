@@ -1,0 +1,32 @@
+.table__heading {
+  display: flex;
+  align-items: center;
+  padding: 7px 20px;
+  background: #f7f5fb;
+}
+
+.table__heading p,
+.table__heading a {
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.table__heading input {
+  width: 180px;
+  border-radius: 5px;
+  padding-block: 12.5px;
+  padding-left: 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+  border: 1px solid #cbcbcb;
+}
+
+.table__heading input {
+  margin-left: 10px;
+}
+
+.table__heading > a {
+  color: #4062bb;
+}

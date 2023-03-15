@@ -1,0 +1,7 @@
+# # Linux + Node + Source + Project dependencies
+FROM node:18-alpine3.15 AS development
+WORKDIR /app
+RUN ls
+COPY package*.json ./
+RUN npm install
+COPY . ./

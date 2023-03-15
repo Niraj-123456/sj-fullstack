@@ -1,0 +1,114 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__content {
+  width: 466px;
+}
+
+.form__content h1 {
+  font-size: 3rem;
+  color: #061d28;
+}
+
+.form__content form {
+  margin-top: 40px;
+}
+
+.input__icon {
+  width: 45px;
+}
+
+form .phonenumber__input {
+  font-size: 1.05rem;
+  padding-top: 2px;
+}
+
+.phone__number__field,
+.password__field {
+  margin-bottom: 20px;
+}
+
+.phone__number__field label,
+.password__field label {
+  color: var(--color-gray-2);
+}
+
+.remember__and__forgot__password__field {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember__phone__field {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.remember__phone__label {
+  font-size: 0.9rem;
+}
+
+.password__toggle__icon {
+  position: absolute;
+  top: 42%;
+  right: 6%;
+  transform: translate(50%, 50%);
+}
+
+.forgot__password__link {
+  font-size: 0.9rem;
+  color: #2f80ed;
+}
+
+.login__button__container {
+  margin-top: 40px;
+}
+
+.no__account__link {
+  text-align: center;
+  padding-block: 20px 10px;
+}
+
+.login__bg__image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 414px) {
+  .content {
+    width: 80%;
+    margin: auto;
+  }
+  .form__content h1 {
+    font-size: 2.3rem;
+  }
+
+  form .phonenumber__input {
+    font-size: 1rem;
+  }
+
+  form .phonenumber__icon {
+    font-size: 0.96rem;
+  }
+
+  .remember__phone__label,
+  .forgot__password__link {
+    font-size: 0.75rem;
+  }
+
+  .login__bg__image {
+    display: none;
+  }
+}

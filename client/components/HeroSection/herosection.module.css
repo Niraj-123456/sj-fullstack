@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+.container {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0.8) 24.02%,
+      rgba(0, 0, 0, 0) 103.92%
+    ),
+    #d9d9d9;
+  background-size: cover;
+  color: var(--color-white);
+  font-family: "Inter", "Roboto", "sans-serif";
+}
+
+.container span img {
+  object-fit: cover;
+  object-position: 0% 0%;
+}
+
+.content {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  margin: auto;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 674px;
+  z-index: 999;
+}
+
+.hero__text__header {
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.6;
+  text-transform: capitalize;
+}
+
+.hero__text__description {
+  margin-top: 10px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.cta form {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.cta .phonenumber__input__icon {
+  font-size: 1rem;
+}
+
+.cta .phonenumber__input {
+  font-size: 1.1rem;
+}
+
+.cta .responsive__cta__btn {
+  margin-top: 50px;
+}
+
+.cta .responsive__cta__btn a {
+  background: var(--primary-color);
+  color: var(--color-white);
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+@media screen and (max-width: 414px) {
+  .container {
+    height: 338px;
+  }
+
+  .content {
+    width: 85%;
+  }
+
+  .container span img {
+    object-position: center 0%;
+  }
+
+  .hero__text__header {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .hero__text__description {
+    margin-top: 0;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .cta .phonenumber__input__div {
+    width: 240px;
+    height: 34px;
+  }
+
+  .cta .phonenumber__input__icon {
+    width: 43px;
+    font-size: 0.8rem;
+  }
+
+  .cta .phonenumber__input {
+    font-size: 0.9rem;
+  }
+
+  .cta button {
+    padding-inline: 15px;
+    height: 34px;
+    font-size: 0.75rem;
+  }
+
+  .cta .responsive__cta__btn {
+    text-align: center;
+  }
+
+  .cta .responsive__cta__btn a {
+    font-size: 0.95rem;
+    padding: 12px 17px;
+  }
+}

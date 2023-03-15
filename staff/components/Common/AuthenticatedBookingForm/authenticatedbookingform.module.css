@@ -1,0 +1,12 @@
+.container {
+  width: 100%;
+}
+
+.input__group {
+  margin-bottom: 20px;
+}
+
+.button__group {
+  display: flex;
+  gap: 15px;
+}

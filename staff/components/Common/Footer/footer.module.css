@@ -1,0 +1,268 @@
+.container {
+  width: 100%;
+  height: 493px;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  width: 80%;
+  margin: auto;
+  padding-top: 52px;
+}
+
+.links__and__subscription {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__links {
+  display: flex;
+}
+
+.link__header {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+}
+
+.link__header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 28px;
+  position: relative;
+  padding-block: 10px;
+}
+
+.link__header h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 50%;
+  background: #f73433;
+  border-radius: 2px;
+}
+
+.service__links {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.service__links li {
+  font-size: 1.13rem;
+  font-weight: 700;
+  line-height: 21px;
+  padding-block: 10px;
+}
+
+.service__contact__icons {
+  display: flex;
+  gap: 16px;
+}
+
+.follow__links__container {
+  display: flex;
+  gap: 95px;
+  margin-top: 40px;
+}
+
+.follow__links h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 28px;
+  padding-block: 13px;
+}
+
+.follow__link__icons {
+  display: flex;
+  gap: 16px;
+}
+
+.responsive__emailSubscription {
+  display: none;
+}
+
+.email__subscription {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.email__subscription form {
+  display: flex;
+  gap: 20px;
+}
+
+.rights__reserved__and__policies__terms {
+  display: flex;
+  gap: 104px;
+  margin-top: 65px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.policy__and__terms {
+  text-decoration: underline;
+}
+
+.download__app {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer__header__and__app h1 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.footer__logo {
+  position: relative;
+  width: 174px;
+  height: 95px;
+  display: none;
+}
+
+.footer__download__app {
+  display: flex;
+  gap: 20px;
+}
+
+.download__from__playstore,
+.download__from__appstore {
+  position: relative;
+  width: 160px;
+  height: 48px;
+}
+
+.responsive__underline {
+  width: 100%;
+  margin-block: 40px;
+  display: none;
+}
+
+@media screen and (max-width: 414px) {
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-block: 30px 60px;
+  }
+
+  .footer__logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .link__header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .link__header h1 {
+    font-size: 1.15rem;
+    padding: 5px;
+  }
+
+  .link__header h1::after {
+    display: none;
+  }
+
+  .service__links li {
+    font-size: 0.9rem;
+    padding: 5px;
+  }
+
+  .service__contact__icons {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .footer__links {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .follow__links__container {
+    align-items: center;
+  }
+
+  .follow__link__icons {
+    justify-content: center;
+  }
+
+  .download__app .responsive__emailSubscription {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .responsive__emailSubscription h1 {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    visibility: visible;
+  }
+
+  .responsive__emailSubscription .email__subscription {
+    height: 44.5px;
+  }
+
+  .responsive__emailSubscription .email__subscription input {
+    width: 275px;
+  }
+
+  .follow__links__container .email__subscription {
+    display: none;
+  }
+
+  .rights__reserved__and__policies__terms {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .download__app {
+    order: 0;
+  }
+
+  .footer__download__app {
+    margin-top: 36px;
+  }
+
+  .links__and__subscription {
+    order: 1;
+  }
+
+  .footer__header__and__app h1 {
+    display: block;
+    margin-top: 38px;
+  }
+
+  .follow__links__container {
+    flex-direction: column;
+  }
+
+  .responsive__underline {
+    display: block;
+  }
+}
